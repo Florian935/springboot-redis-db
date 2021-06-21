@@ -20,6 +20,8 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE)
 @RedisHash("students")
 public class Student {
+
+    @NotEmpty(message = "ID can not be null or empty")
     String id;
 
     @NotEmpty(message = "Name can not be null or empty")

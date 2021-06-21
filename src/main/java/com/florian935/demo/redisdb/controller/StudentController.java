@@ -17,6 +17,7 @@ import java.util.Map;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 /**
@@ -31,42 +32,44 @@ public class StudentController {
     StudentService studentService;
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Student>> getAll() {
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<Student> getAll() {
 
-        final List<Student> students = studentService.getAll();
-
-        return ResponseEntity.ok(students);
+        return studentService.getAll();
     }
 
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Student> getById(@PathVariable final String id) {
+    @ResponseBody
+    @ResponseStatus(OK)
+    public Student getById(@PathVariable final String id) {
 
-        final Student student = studentService.getById(id);
-
-        return ResponseEntity.ok(student);
+        return studentService.getById(id);
     }
 
     @PostMapping(produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<Student> insert(@RequestBody @Valid final Student student) {
+    @ResponseBody
+    @ResponseStatus(CREATED)
+    public Student insert(@RequestBody @Valid final Student student) {
 
-        final Student studentCreated = studentService.insert(student);
-
-        return ResponseEntity.status(CREATED).body(studentCreated);
+        return studentService.insert(student);
     }
 
     @PutMapping
-    public ResponseEntity<Student> update(@RequestBody @Valid final Student student) {
+    @ResponseBody
+    @ResponseStatus(OK)
+    public Student update(@RequestBody @Valid final Student student) {
 
-        final Student studentUpdated = studentService.update(student);
-
-        return ResponseEntity.ok(studentUpdated);
+        return studentService.update(student);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable final String id) {
+    @ResponseBody
+    @ResponseStatus(OK)
+    public String delete(@PathVariable final String id) {
 
         studentService.deleteById(id);
 
-        return ResponseEntity.ok("Deleted successfully !");
+        return "Deleted successfully !";
     }
 }
