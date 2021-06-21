@@ -4,6 +4,9 @@ import com.florian935.demo.redisdb.domain.Student;
 
 import java.util.List;
 
+/**
+ * @author florian935
+ */
 public interface StudentService {
     List<Student> getAll();
 

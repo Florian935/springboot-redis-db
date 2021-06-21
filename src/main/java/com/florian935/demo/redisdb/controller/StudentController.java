@@ -2,13 +2,9 @@ package com.florian935.demo.redisdb.controller;
 
 import com.florian935.demo.redisdb.domain.Student;
 import com.florian935.demo.redisdb.service.StudentService;
-import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -16,9 +12,11 @@ import java.util.List;
 
 import static lombok.AccessLevel.PRIVATE;
 import static org.springframework.http.HttpStatus.CREATED;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+/**
+ * @author florian935
+ */
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 @RequiredArgsConstructor
 @RestController

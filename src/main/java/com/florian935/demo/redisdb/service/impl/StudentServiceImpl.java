@@ -3,7 +3,6 @@ package com.florian935.demo.redisdb.service.impl;
 import com.florian935.demo.redisdb.domain.Student;
 import com.florian935.demo.redisdb.repository.StudentRepository;
 import com.florian935.demo.redisdb.service.StudentService;
-import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
