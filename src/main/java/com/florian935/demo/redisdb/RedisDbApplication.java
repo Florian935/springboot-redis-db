@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
 
+/**
+ * @author florian935
+ */
 @SpringBootApplication
 public class RedisDbApplication {
 
