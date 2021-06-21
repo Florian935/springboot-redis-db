@@ -16,6 +16,7 @@ public class RedisConfig {
 
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
+
         final RedisStandaloneConfiguration redisStandaloneConfiguration =
                 new RedisStandaloneConfiguration(LOCALHOST, PORT);
         redisStandaloneConfiguration.setDatabase(5);
@@ -25,6 +26,7 @@ public class RedisConfig {
 
     @Bean
     RedisTemplate<String, ?> redisTemplate() {
+
         final RedisTemplate<String, ?> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());
 
